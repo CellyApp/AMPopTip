@@ -318,7 +318,9 @@
         self.transform = CGAffineTransformIdentity;
     } completion:^(BOOL completed){
         if (completed) {
-            [self.containerView addGestureRecognizer:self.removeGesture];
+            if(self.shouldDismissOnTapOutside) {
+                [self.containerView addGestureRecognizer:self.removeGesture];
+            }
         }
     }];
 }
@@ -373,7 +375,9 @@
 {
     [self.dismissTimer invalidate];
     self.dismissTimer = nil;
-    [self.containerView removeGestureRecognizer:self.removeGesture];
+    if(self.shouldDismissOnTapOutside) {
+        [self.containerView removeGestureRecognizer:self.removeGesture];
+    }
     if (self.superview) {
         [UIView animateWithDuration:self.animationOut delay:0 options:(UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState) animations:^{
             self.transform = CGAffineTransformMakeScale(0.000001, 0.000001);

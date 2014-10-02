@@ -93,6 +93,10 @@ typedef NS_ENUM(NSInteger, AMPopTipDirection) {
 - (void)hide;
 
 
+
+
+//@property (nonatomic, copy) void (^hideHandler)();
+
 /**-----------------------------------------------------------------------------
 * @name AMPopTip Properties
 * -----------------------------------------------------------------------------
