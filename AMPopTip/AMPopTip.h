@@ -176,4 +176,11 @@ typedef NS_ENUM(NSInteger, AMPopTipDirection) {
  */
 @property (nonatomic, copy) void (^tapHandler)();
 
+/** Hide handler
+ *
+ * A block that will be fired when the popover is done hiding.
+ */
+@property (nonatomic, copy) void (^hideHandler)();
+
+
 @end
